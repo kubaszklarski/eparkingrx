@@ -1,7 +1,27 @@
 swagger: "2.0"
 info:
+  description: "This is API definition for eParkingRX application"
   version: 1.0.0
-  title: eParkingRX
+  title: "eParkingRX API"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "kuba.szklarski@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "eparkingrx.swagger.io"
+basePath: "/v1"
+tags:
+- name: "Account"
+  description: "Service for account administration"
+- name: "Parking"
+  description: "Service for running parking operation"
+- name: "Charge"
+  description: "Service for calculating charging parking fees"
+- name: "Rate"
+  description: "Service to administer parking rates"
+- name: "Payment"
+  description: "Service to process payments"
 paths:
   /accounts:
     post:
