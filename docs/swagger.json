@@ -23,7 +23,7 @@ tags:
 - name: "Payment"
   description: "Service to process payments"
 paths:
-  /accounts:
+  /accountsxxx:
     post:
       tags:
       - "Account"
