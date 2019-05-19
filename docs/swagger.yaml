@@ -1,516 +1,693 @@
-swagger: "2.0"
+swagger: '2.0'
 info:
-  description: "This is API definition for eParkingRX application"
+  description: This is API definition for eParkingRX application
   version: 1.0.0
-  title: "eParkingRX API"
-  termsOfService: "http://swagger.io/terms/"
+  title: eParkingRX API
+  termsOfService: 'http://swagger.io/terms/'
   contact:
-    email: "kuba.szklarski@gmail.com"
+    email: kuba.szklarski@gmail.com
   license:
-    name: "Apache 2.0"
-    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "eparkingrx.swagger.io"
-basePath: "/v1"
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+host: eparkingrx.swagger.io
 tags:
-- name: "Account"
-  description: "Service for account administration"
-- name: "Parking"
-  description: "Service for running parking operation"
-- name: "Charge"
-  description: "Service for calculating charging parking fees"
-- name: "Rate"
-  description: "Service to administer parking rates"
-- name: "Payment"
-  description: "Service to process payments"
+  - name: RegisterAccount
+    description: Account registration
+  - name: RetrieveAccount
+    description: Account retrieval
+  - name: DisableAccount
+    description: Account deactivation
+  - name: UpdateAccount
+    description: Account update
+  - name: RegisterPayment
+    description: Payment registration
+  - name: CheckBalance
+    description: Payment balance check
+  - name: ChargeFee
+    description: Parking fee charge
+  - name: SetRate
+    description: Update parking rates
+  - name: StartParking
+    description: Parking start
+  - name: EndParking
+    description: Parking end
+
 paths:
-  /accounts:
+  '/accounts':
     post:
       tags:
-      - "Account"
-      summary: "Register account"
-      operationId: "registerAccount"
+        - RegisterAccount
+      summary: Account registration
+      operationId: RegisterAccount
       consumes:
-      - "application/json"
+        - application/json
+        - application/xml
       produces:
-      - "application/json"
-      parameters: 
-      - in: "body"
-        name: "body"
-        description: "Account object that needs to be registered"
-        required: true
-        schema:
-          $ref: "#/definitions/Account"
-      responses:
-        201:
-          description: "Created"
-          schema:
-            $ref: "#/definitions/AccountId"
-        400:
-          description: "Bad Request"
-          schema:
-            $ref: "#/definitions/Fault"
-        500:
-          description: "Internal Server Error"
-          schema:
-            $ref: "#/definitions/Fault"
-  /accounts/{AccountId}:
-    get:
-      tags:
-      - "Account"
-      summary: "Retrieve account"
-      operationId: "retrieveAccount"
-      produces:
-      - "application/json"
+        - application/json
+        - application/xml
       parameters:
-      - name: "AccountId"
-        in: "path"
-        type: "string"
-        required: true
+        - in: body
+          name: RegisterAccount
+          description: Account registration input
+          required: true
+          schema:
+            $ref: '#/definitions/RegisterAccount'
       responses:
-        200:
-          description: "OK"
+        '201':
+          description: Account registered
           schema:
-            $ref: "#/definitions/Account"
-        400:
-          description: "Bad Request"
+            $ref: '#/definitions/RegisterAccountResponse'
+        '400':
+          description: Invalid input
           schema:
-            $ref: "#/definitions/Fault"
-        404:
-          description: "Not Found"
+            $ref: '#/definitions/Fault'
+        '500':
+          description: Internal system error
           schema:
-            $ref: "#/definitions/Fault"
-        500:
-          description: "Internal Server Error"
+            $ref: '#/definitions/Fault'
+        '502':
+          description: External system fault
           schema:
-            $ref: "#/definitions/Fault"
-  /parkings:
-    post:
-      tags:
-      - "Parking"
-      summary: "Start parking"
-      operationId: "startParking"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      parameters: 
-      - in: "body"
-        name: "body"
-        description: "Parking object"
-        required: true
-        schema:
-          $ref: "#/definitions/Parking"
-      responses:
-        201:
-          description: "Created"
-          schema:
-            $ref: "#/definitions/ParkingId"
-        400:
-          description: "Bad Request"
-          schema:
-            $ref: "#/definitions/Fault"
-        500:
-          description: "Internal Server Error"
-          schema:
-            $ref: "#/definitions/Fault"
-  /parkings/{ParkingId}:
+            $ref: '#/definitions/Fault'
+
+  '/accounts/{AccountId}':
     get:
       tags:
-      - "Parking"    
-      summary: "Retrieve parking"
-      operationId: "retrieveParking"
+        - RetrieveAccount
+      summary: Account retrieval
+      operationId: RetrieveAccount
       produces:
-      - "application/json"
-      parameters: 
-      - name: "ParkingId"
-        in: "path"
-        type: "string"
-        required: true
+        - application/json
+        - application/xml
+      parameters:
+        - name: AccountId
+          in: path
+          type: string
+          description: Account identification
+          required: true
       responses:
-        200:
-          description: "OK"
+        '200':
+          description: OK
           schema:
-            $ref: "#/definitions/Parking"
-        400:
-          description: "Bad Request"
+            $ref: '#/definitions/RetrieveAccountResponse'
+        '400':
+          description: Invalid input
           schema:
-            $ref: "#/definitions/Fault"
-        404:
-          description: "Not Found"
+            $ref: '#/definitions/Fault'
+        '404':
+          description: Account not found
           schema:
-            $ref: "#/definitions/Fault"
-        500:
-          description: "Internal Server Error"
+            $ref: '#/definitions/Fault'
+        '500':
+          description: Internal system error
           schema:
-            $ref: "#/definitions/Fault"
+            $ref: '#/definitions/Fault'
+        '502':
+          description: External system fault
+          schema:
+            $ref: '#/definitions/Fault'
+
     delete:
       tags:
-      - "Parking"    
-      summary: "Stop parking"
-      operationId: "stopParking"
+        - DisableAccount
+      summary: Account deactivation
+      operationId: DisableAccount
       produces:
-      - "application/json"
-      parameters: 
-      - name: "ParkingId"
-        in: "path"
-        type: "string"
-        required: true
-      responses:
-        200:
-          description: "OK"
-        400:
-          description: "Bad Request"
-          schema:
-            $ref: "#/definitions/Fault"
-        404:
-          description: "Not Found"
-          schema:
-            $ref: "#/definitions/Fault"
-        500:
-          description: "Internal Server Error"
-          schema:
-            $ref: "#/definitions/Fault"
-  /charges:
-    post:
-      tags:
-      - "Charge"
-      summary: "Charge parking fee"
-      operationId: "chargeParkingFee"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      parameters: 
-      - in: "body"
-        name: "body"
-        description: "Charge object"
-        required: true
-        schema:
-          $ref: "#/definitions/Charge"
-      responses:
-        201:
-          description: "Created"
-          schema:
-            $ref: "#/definitions/ChargeId"
-        400:
-          description: "Bad Request"
-          schema:
-            $ref: "#/definitions/Fault"
-        500:
-          description: "Internal Server Error"
-          schema:
-            $ref: "#/definitions/Fault"
-  /charges/calculate:
-    post:
-      tags:
-      - "Charge"
-      summary: "Calculate parking fee based on current rates, parking time and length"
-      operationId: "calculateParkingFee"
-      produces:
-      - "application/json"
+        - application/json
+        - application/xml
       parameters:
-      - name: "ParkingId"
-        in: "query"
-        required: true
-        type: "string"
+        - name: AccountId
+          in: path
+          type: string
+          description: Account identification
+          required: true
       responses:
-        201:
-          description: "Created"
+        '200':
+          description: OK
+        '400':
+          description: Invalid input
           schema:
-            $ref: "#/definitions/ChargeAmount"
-        400:
-          description: "Bad Request"
+            $ref: '#/definitions/Fault'
+        '500':
+          description: Internal system error
           schema:
-            $ref: "#/definitions/Fault"
-        500:
-          description: "Internal Server Error"
+            $ref: '#/definitions/Fault'
+        '502':
+          description: External system fault
           schema:
-            $ref: "#/definitions/Fault"
-  /rates:
+            $ref: '#/definitions/Fault'
+
     put:
       tags:
-      - "Rate"
-      summary: "Set parking rate"
-      operationId: "updateRate"
+        - UpdateAccount
+      summary: Account update
+      operationId: UpdateAccount
       consumes:
-      - "application/json"
-      parameters: 
-      - in: "body"
-        name: "body"
-        description: "Rate object"
-        required: true
-        schema:
-          $ref: "#/definitions/Rate"
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - name: AccountId
+          in: path
+          type: string
+          description: Account identification
+          required: true
+        - in: body
+          name: UpdateAccount
+          description: Account update input
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateAccount'
       responses:
-        200:
-          description: "OK"
-        400:
-          description: "Bad Request"
+        '200':
+          description: Account updated
           schema:
-            $ref: "#/definitions/Fault"
-        500:
-          description: "Internal Server Error"
+            $ref: '#/definitions/UpdateAccountResponse'
+        '400':
+          description: Invalid input
           schema:
-            $ref: "#/definitions/Fault"
-    get:
-      tags:
-      - "Rate"
-      summary: "Get parking rate"
-      operationId: "retrieveRate"
-      responses:
-        200:
-          description: "OK"
+            $ref: '#/definitions/Fault'
+        '500':
+          description: Internal system error
           schema:
-            $ref: "#/definitions/Rate"
-        400:
-          description: "Bad Request"
+            $ref: '#/definitions/Fault'
+        '502':
+          description: External system fault
           schema:
-            $ref: "#/definitions/Fault"
-        500:
-          description: "Internal Server Error"
-          schema:
-            $ref: "#/definitions/Fault"
-  /payments:
+            $ref: '#/definitions/Fault'
+      
+  '/payments':
     post:
       tags:
-      - "Payment"
-      summary: "Top up account with registered payment"
-      operationId: "registerPayment"
+        - RegisterPayment
+      summary: Payment registration
+      operationId: RegisterPayment
       consumes:
-      - "application/json"
+        - application/json
+        - application/xml
       produces:
-      - "application/json"
-      parameters: 
-      - in: "body"
-        name: "body"
-        description: "Charge object"
-        required: true
-        schema:
-          $ref: "#/definitions/Payment"
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: RegisterPayment
+          description: Payment registration input
+          required: true
+          schema:
+            $ref: '#/definitions/RegisterPayment'
       responses:
-        201:
-          description: "Created"
+        '201':
+          description: Payment registered
           schema:
-            $ref: "#/definitions/PaymentId"
-        400:
-          description: "Bad Request"
+            $ref: '#/definitions/RegisterPaymentResponse'
+        '400':
+          description: Invalid input
           schema:
-            $ref: "#/definitions/Fault"
-        500:
-          description: "Internal Server Error"
+            $ref: '#/definitions/Fault'
+        '500':
+          description: Internal system error
           schema:
-            $ref: "#/definitions/Fault"
+            $ref: '#/definitions/Fault'
+        '502':
+          description: External system fault
+          schema:
+            $ref: '#/definitions/Fault'
 
+  '/payments/{AccountId}':
+    get:
+      tags:
+        - CheckBalance
+      summary: Payment balance check
+      operationId: CheckBalance
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - name: AccountId
+          in: path
+          type: string
+          description: Account identification
+          required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CheckBalanceResponse'
+        '400':
+          description: Invalid input
+          schema:
+            $ref: '#/definitions/Fault'
+        '404':
+          description: Payment not found
+          schema:
+            $ref: '#/definitions/Fault'
+        '500':
+          description: Internal system error
+          schema:
+            $ref: '#/definitions/Fault'
+        '502':
+          description: External system fault
+          schema:
+            $ref: '#/definitions/Fault'
+
+  '/fees':
+    post:
+      tags:
+        - ChargeFee
+      summary: Parking fee charge
+      operationId: ChargeFee
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: ChargeFee
+          description: Charge fee
+          required: true
+          schema:
+            $ref: '#/definitions/ChargeFee'
+      responses:
+        '201':
+          description: Fee charged
+          schema:
+            $ref: '#/definitions/ChargeFeeResponse'
+        '400':
+          description: Invalid input
+          schema:
+            $ref: '#/definitions/Fault'
+        '500':
+          description: Internal system error
+          schema:
+            $ref: '#/definitions/Fault'
+        '502':
+          description: External system fault
+          schema:
+            $ref: '#/definitions/Fault'
+
+  '/rates':
+    put:
+      tags:
+        - SetRate
+      summary: Update parking rates
+      operationId: SetRate
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: SetRate
+          description: Parking rate input
+          required: true
+          schema:
+            $ref: '#/definitions/SetRate'
+      responses:
+        '200':
+          description: Parking rate updated
+          schema:
+            $ref: '#/definitions/SetRateResponse'
+        '400':
+          description: Invalid input
+          schema:
+            $ref: '#/definitions/Fault'
+        '500':
+          description: Internal system error
+          schema:
+            $ref: '#/definitions/Fault'
+        '502':
+          description: External system fault
+          schema:
+            $ref: '#/definitions/Fault'
+
+  '/parking':
+    post:
+      tags:
+        - StartParking
+      summary: Parking start
+      operationId: StartParking
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: StartParking
+          description: Start parking input
+          required: true
+          schema:
+            $ref: '#/definitions/StartParking'
+      responses:
+        '201':
+          description: Parking started
+          schema:
+            $ref: '#/definitions/StartParkingResponse'
+        '400':
+          description: Invalid input
+          schema:
+            $ref: '#/definitions/Fault'
+        '500':
+          description: Internal system error
+          schema:
+            $ref: '#/definitions/Fault'
+        '502':
+          description: External system fault
+          schema:
+            $ref: '#/definitions/Fault'
+      
+  '/parking/{ParkingId}':
+    delete:
+      tags:
+        - EndParking
+      summary: Parking end
+      operationId: EndParking
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - name: ParkingId
+          in: path
+          type: string
+          description: End parking input
+          required: true
+      responses:
+        '200':
+          description: Parking ended
+          schema:
+            $ref: '#/definitions/EndParkingResponse'
+        '400':
+          description: Invalid input
+          schema:
+            $ref: '#/definitions/Fault'
+        '500':
+          description: Internal system error
+          schema:
+            $ref: '#/definitions/Fault'
+        '502':
+          description: External system fault
+          schema:
+            $ref: '#/definitions/Fault'
+            
 definitions:
-  Fault:
-    type: "object"
+
+  RegisterAccount:
+    type: object
+    description: information about clients account
     properties:
-      Code:
-        type: "string"
-        description: "fault code"
-      Message:
-        type: "string"
-        description: "fault message"
-      Details:
-        type: "string"
-        description: "fault details"
-  IdReadWrite:
-    type: "string"
-    description: "common identificator"
-    readOnly: false
-  IdReadOnly:
-    type: "string"
-    description: "common identificator"
-    readOnly: true
-  PaymentId:
-    type: "object"
-    description: "identification of payment object"
-    properties:
-      PaymentId:
-        $ref: "#/definitions/IdReadWrite"
-  AccountId:
-    type: "object"
-    description: "identification of account object"
+      Amount:
+        $ref: '#/definitions/Amount'
+      Client:
+        $ref: '#/definitions/Client'
+      Vehicle:
+        $ref: '#/definitions/Vehicle'
+
+  RegisterAccountResponse:
+    type: object
+    description: information about clients account
     properties:
       AccountId:
-        $ref: "#/definitions/IdReadWrite"
-  ChargeId:
-    type: "object"
-    description: "identification of charge object"
+        $ref: '#/definitions/AccountId'
+
+  RetrieveAccountResponse:
+    type: object
+    description: information about clients account
     properties:
-      ChargeId:
-        $ref: "#/definitions/IdReadWrite"
-  ParkingId:
-    type: "object"
-    description: "identification of parking object"
+      Account:
+        $ref: '#/definitions/Account'
+        
+  UpdateAccount:
+    type: object
+    description: information about clients account
+    properties:
+      Amount:
+        $ref: '#/definitions/Amount'
+      Client:
+        $ref: '#/definitions/Client'
+      Vehicle:
+        $ref: '#/definitions/Vehicle'
+        
+  UpdateAccountResponse:
+    type: object
+    description: information about clients account
+    properties:
+      Account:
+        $ref: '#/definitions/Account'
+        
+  RegisterPayment:
+    type: object
+    description: information about topping up the account
+    properties:
+      AccountId:
+        $ref: '#/definitions/AccountId'
+      Amount:
+        $ref: '#/definitions/Amount'
+  
+  RegisterPaymentResponse:
+    type: object
+    description: information about clients account
+    properties:
+      Payment:
+        $ref: '#/definitions/Payment'
+
+  CheckBalanceResponse:
+    type: object
+    description: information about topping up the account
+    properties:
+      Amount:
+        $ref: '#/definitions/Amount'
+
+  ChargeFee:
+    type: object
+    description: information about amount charged for parking
+    properties:
+      Parking:
+        $ref: '#/definitions/Parking'
+  
+  ChargeFeeResponse:
+    type: object
+    description: information about amount charged for parking
+    properties:
+      Amount:
+        $ref: '#/definitions/Amount'
+        
+  SetRate:
+    type: object
+    description: information about parking rate per minute
+    properties:
+      Amount:
+        $ref: '#/definitions/Amount'    
+    
+  SetRateResponse:
+    type: object
+    description: information about clients account
+    properties:
+      Rate:
+        $ref: '#/definitions/Rate'
+        
+  StartParking:
+    type: object
+    description: information about amount charged for parking
+    properties:
+      AccountId:
+        $ref: '#/definitions/AccountId'
+      ParkingType:
+        $ref: '#/definitions/ParkingType'
+      ParkingStatus:
+        $ref: '#/definitions/ParkingStatus'
+      ParkingStartTime:
+        $ref: '#/definitions/ParkingStartTime'
+      ParkingEndTime:
+        $ref: '#/definitions/ParkingEndTime'
+      ParkingPeriod:
+        $ref: '#/definitions/ParkingPeriod'
+
+  StartParkingResponse:
+    type: object
+    description: information about amount charged for parking
     properties:
       ParkingId:
-        $ref: "#/definitions/IdReadWrite"
+        $ref: '#/definitions/ParkingId'
+  
+  EndParkingResponse:
+    type: object
+    description: information about amount charged for parking
+    properties:
+      Amount:
+        $ref: '#/definitions/Amount'
+
+  AccountId:
+    type: string
+    description: identification of account object
+
+  PaymentId:
+    type: string
+    description: identification of payment object
+    
+  ParkingId:
+    type: string
+    description: identification of parking object
+
+  Amount:
+    type: number
+    format: double
+    description: universal amount
+    example: '10,00'
+
+  Account:
+    type: object
+    description: information about clients account
+    properties:
+      AccountId:
+        $ref: '#/definitions/AccountId'
+      Amount:
+        $ref: '#/definitions/Amount'
+      Client:
+        $ref: '#/definitions/Client'
+      Vehicle:
+        $ref: '#/definitions/Vehicle'
+    
   Client:
-    type: "object"
-    description: "details of clients identification information"
-    required: 
-      - "FirstName"
-      - "LastName"
-      - "Pesel"
+    type: object
+    description: details of clients identification information
     properties:
       FirstName:
-        type: "string"
-        description: "clients first name"
-        example: "Jan"
+        type: string
+        description: clients first name
+        example: 'Jan'
       LastName:
-        type: "string"
-        description: "clients last name"
-        example: "Kowalski"
+        type: string
+        description: clients last name
+        example: 'Kowalski'
       Pesel:
-        type: "string"
-        description: "clients pesel identification number"
-        example: "80112200777"
+        type: string
+        description: clients pesel identification number
+        example: '80112200777'
+
   Vehicle:
-    type: "object"
-    description: "details of clients vehicle"
-    required: 
-      - "RegistrationNumber"
-      - "VinNumber"
-      - "Brand"
-      - "Model"
-      - "ProductionDate"
+    type: object
+    description: details of clients vehicle
     properties:
       RegistrationNumber:
-        type: "string"
-        description: "clients vehicle registration number"
-        example: "WW12345"
+        type: string
+        description: clients vehicle registration number
+        example: 'WW12345'
       VinNumber:
-        type: "string"
-        description: "clients vehicle vin number"
-        example: "JTDZN3EU5FJ016414"
+        type: string
+        description: clients vehicle vin number
+        example: 'JTDZN3EU5FJ016414'
       Brand:
-        type: "string"
-        description: "clients vehicle brand name"
-        example: "Opel"
+        type: string
+        description: clients vehicle brand name
+        example: 'Opel'
       Model:
-        type: "string"
-        description: "clients vehicle brand model name"
-        example: "Corsa"
+        type: string
+        description: clients vehicle brand model name
+        example: 'Corsa'
       ProductionDate:
-        type: "string"
-        format: "date"
-        description: "clients vehicle production date"
-        example: "2018-03-15"
-  Account:
-    type: "object"
-    description: "information about clients account"
-    allOf:
-      - $ref: "#/definitions/Vehicle"
-      - $ref: "#/definitions/Client"
-      - properties:
-          AccountId:
-            $ref: "#/definitions/IdReadOnly"
-          AccountAmount:
-            type: "number"
-            format: "double"
-            description: "amount od funds on customers account"
-            readOnly: true
-            example: "97,50"
+        type: string
+        format: date
+        description: clients vehicle production date
+        example: '2018-03-15'
+
+  Parking:
+    type: object
+    description: information about parking activity
+    properties:
+      ParkingId:
+        $ref: '#/definitions/ParkingId'
+      AccountId:
+        $ref: '#/definitions/AccountId'
+      ParkingType:
+        $ref: '#/definitions/ParkingType'
+      ParkingStatus:
+        $ref: '#/definitions/ParkingStatus'
+      ParkingStartTime:
+        $ref: '#/definitions/ParkingStartTime'
+      ParkingEndTime:
+        $ref: '#/definitions/ParkingEndTime'
+      ParkingPeriod:
+        $ref: '#/definitions/ParkingPeriod'
+
+  ParkingType:
+    type: string
+    enum:
+      - DEADLINE
+      - PERIOD
+    description: DEADLINE is parking until specific hour, PERIOD is parking for specific time
+    example: DEADLINE
+    
+  ParkingStatus:
+    type: string
+    enum:
+      - ACTIVE
+      - COMPLETED
+      - ENDED
+    description: ACTIVE is current parking, COMPLETED is after parking ends, ENDED is before parking ends
+    example: ACTIVE
+    
+  ParkingStartTime:
+    type: string
+    format: date-time
+    description: parking starting hour
+    example: '2019-02-14T17:00:00'
+    
+  ParkingEndTime:
+    type: string
+    format: date-time
+    description: parking ending hour
+    example: '2019-02-14T19:00:00'
+    
+  ParkingPeriod:
+    type: number
+    format: double
+    description: 'parking period, time in seconds between parking start and parking end'
+    example: '600'
+
+  Payment:
+    type: object
+    description: information about topping up the account
+    properties:
+      PaymentId:
+        $ref: '#/definitions/PaymentId'
+      AccountId:
+        $ref: '#/definitions/AccountId'
+      Amount:
+        $ref: '#/definitions/Amount'
+
   Rate:
-    type: "object"
-    description: "information about parkingrate per minute"
-    required: 
-      - "RateAmount"
+    type: object
+    description: information about parking rate per minute
     properties:
       RateAmount:
-        type: "number"
-        format: "decimal"
-        description: "parking rate amount per minute"
-        example: "2,50"
-  Payment:
-    type: "object"
-    description: "information about topping up the account"
-    required: 
-      - "AccountId"
-      - "PaymentAmount"
-    allOf: 
-    - $ref: "#/definitions/AccountId"
-    - properties:
-        PaymentId:
-          $ref: "#/definitions/IdReadOnly"
-        PaymentAmount:
-          type: "number"
-          format: "double"
-          description: "top up amount"
-          example: "50,00"
-  ChargeAmount:
-    type: "object"
+        $ref: '#/definitions/Amount'
+
+  Fault:
+    type: object
     properties:
-      ChargeAmount:
-        type: "number"
-        format: "double"
-        description: "parking charge amount"
-  Charge:
-    type: "object"
-    description: "information about amount charged for parking"
-    required: 
-      - "ParkingId"
-    allOf: 
-    - $ref: "#/definitions/ParkingId"
-    - $ref: "#/definitions/ChargeAmount"
-    - properties:
-        ChargeId:
-          $ref: "#/definitions/IdReadOnly"
-  Parking:
-    type: "object"
-    description: "information about parking activity"
-    required: 
-      - "AccountId"
-      - "ParkingType"
-      - "ParkingStart"
-    allOf: 
-    - $ref: "#/definitions/AccountId"
-    - properties:
-        ParkingId:
-          $ref: "#/definitions/IdReadOnly"
-        ParkingType:
-          type: "string"
-          enum: [DEADLINE, PERIOD]
-          description: "DEADLINE is parking until specific hour, PERIOD is parking for specific time"
-          example: "DEADLINE"
-        ParkingStatus:
-          type: "string"
-          enum: [ACTIVE, COMPLETED, ENDED]
-          description: "ACTIVE is current parking, COMPLETED is after parking ends, ENDED is before parking ends"
-          example: "ACTIVE"
-          readOnly: true
-        ParkingStart:
-          type: "string"
-          format: "date-time"
-          description: "parking starting hour"
-          example: "2019-02-14T17:00:00"
-        ParkingEnd:
-          type: "string"
-          format: "date-time"
-          description: "parking ending hour"
-          example: "2019-02-14T19:00:00"
-        ParkingPeriod:
-          type: "number"
-          format: "double"
-          description: "parking period, time between parking start and parking end"
-  Parkings:
-    type: "array"
-    items:
-      $ref: "#/definitions/Parking"
-  Charges:
-    type: "array"
-    items:
-      $ref: "#/definitions/Charge"
-  Payments:
-    type: "array"
-    items:
-      $ref: "#/definitions/Payment"
-  Rates:
-    type: "array"
-    items:
-      $ref: "#/definitions/Rate"
-  Accounts:
-    type: "array"
-    items:
-      $ref: "#/definitions/Account"
+      Type:
+        type: string
+        description: type of fault
+        enum:
+          - VALIDATION
+          - TECHNICAL
+          - BUSINESS
+      Code:
+        type: string
+        description: fault code
+      Message:
+        type: string
+        description: fault message
+      Details:
+        type: string
+        description: fault details
