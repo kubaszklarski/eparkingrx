@@ -9,7 +9,10 @@ info:
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-host: eparkingrx.swagger.io
+host: eparkingrx.swagger.io:8080
+basePath: /v1
+schemes: 
+  - http
 tags:
   - name: RegisterAccount
     description: Account registration
@@ -17,8 +20,8 @@ tags:
     description: Account retrieval
   - name: DisableAccount
     description: Account deactivation
-  - name: UpdateAccount
-    description: Account update
+  - name: ValidateAccount
+    description: Account validation
   - name: RegisterPayment
     description: Payment registration
   - name: CheckBalance
@@ -137,11 +140,12 @@ paths:
           schema:
             $ref: '#/definitions/Fault'
 
-    put:
+  '/accounts/validate':
+    post:
       tags:
-        - UpdateAccount
-      summary: Account update
-      operationId: UpdateAccount
+        - ValidateAccount
+      summary: Account validation
+      operationId: ValidateAccount
       consumes:
         - application/json
         - application/xml
@@ -149,22 +153,17 @@ paths:
         - application/json
         - application/xml
       parameters:
-        - name: AccountId
-          in: path
-          type: string
-          description: Account identification
-          required: true
         - in: body
-          name: UpdateAccount
-          description: Account update input
+          name: ValidateAccount
+          description: Account validation input
           required: true
           schema:
-            $ref: '#/definitions/UpdateAccount'
+            $ref: '#/definitions/ValidateAccount'
       responses:
         '200':
-          description: Account updated
+          description: Account validated
           schema:
-            $ref: '#/definitions/UpdateAccountResponse'
+            $ref: '#/definitions/ValidateAccountResponse'
         '400':
           description: Invalid input
           schema:
@@ -426,9 +425,9 @@ definitions:
       Account:
         $ref: '#/definitions/Account'
         
-  UpdateAccount:
+  ValidateAccount:
     type: object
-    description: information about clients account
+    description: information required to perform account validation
     properties:
       Amount:
         $ref: '#/definitions/Amount'
@@ -437,12 +436,12 @@ definitions:
       Vehicle:
         $ref: '#/definitions/Vehicle'
         
-  UpdateAccountResponse:
+  ValidateAccountResponse:
     type: object
-    description: information about clients account
+    description: account validation result
     properties:
-      Account:
-        $ref: '#/definitions/Account'
+      ValidationResult:
+        $ref: '#/definitions/ValidationResult'
         
   RegisterPayment:
     type: object
@@ -671,9 +670,27 @@ definitions:
     properties:
       RateAmount:
         $ref: '#/definitions/Amount'
-
+  
+  ValidationResult:
+    type: object
+    description: generic validation result
+    properties:
+      Result:
+        type: string
+        description: validation result
+        enum:
+          - VALID
+          - INVALID
+      Messages:
+        type: array
+        description: list of validation messages
+        items:
+          type: string
+          description: validation message
+  
   Fault:
     type: object
+    description: generic fault
     properties:
       Type:
         type: string
@@ -691,3 +708,5 @@ definitions:
       Details:
         type: string
         description: fault details
+
+

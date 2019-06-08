@@ -6,6 +6,5 @@
   "rxInterface" : false,
   "vertxSwaggerRouterVersion" : "1.6.0",
   "groupId" : "io.eparkingrx",
-  "artifactId" : "codegen",
   "artifactVersion" : "1.0.0"
 }

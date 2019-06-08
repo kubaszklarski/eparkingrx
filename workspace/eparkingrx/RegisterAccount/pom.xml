@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<groupId>io.eparkingrx</groupId>
-	<artifactId>codegen</artifactId>
+	<artifactId>RegisterAccount</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
   
@@ -13,7 +13,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<junit.version>4.12</junit.version>
-		<vertx.version>3.4.1</vertx.version>
+		<vertx.version>3.7.0</vertx.version>
 		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
 		<vertx-swagger-router.version>1.6.0</vertx-swagger-router.version>
 		<maven-shade-plugin.version>2.3</maven-shade-plugin.version>
@@ -35,6 +35,58 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-core</artifactId>
+            <version>${vertx.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-web</artifactId>
+            <version>${vertx.version}</version>
+        </dependency>
+
+		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-camel-bridge</artifactId>
+			<version>${vertx.version}</version>
+		</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-jackson -->
+<dependency>
+    <groupId>org.apache.camel</groupId>
+    <artifactId>camel-jackson</artifactId>
+    <version>2.24.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
+<dependency>
+    <groupId>com.fasterxml.jackson.datatype</groupId>
+    <artifactId>jackson-datatype-jsr310</artifactId>
+    <version>2.9.8</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jdk8 -->
+<dependency>
+    <groupId>com.fasterxml.jackson.datatype</groupId>
+    <artifactId>jackson-datatype-jdk8</artifactId>
+    <version>2.9.8</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-parameter-names -->
+<dependency>
+    <groupId>com.fasterxml.jackson.module</groupId>
+    <artifactId>jackson-module-parameter-names</artifactId>
+    <version>2.9.8</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.9.8</version>
+</dependency>
+
+
 		<dependency>
             <groupId>com.github.phiz71</groupId>
             <artifactId>vertx-swagger-router</artifactId>
@@ -46,6 +98,12 @@
           <artifactId>jackson-datatype-jsr310</artifactId>
           <version>${jackson-datatype-jsr310.version}</version>
         </dependency>
+
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-simple</artifactId>
+		    <version>1.7.26</version>
+		</dependency>
 
 	</dependencies>
 
