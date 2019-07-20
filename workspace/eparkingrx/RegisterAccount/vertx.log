@@ -1,5 +1,0 @@
-[vert.x-eventloop-thread-0] 2019-05-23T00:58:16.545+02:00 INFO [io.vertx.camel.impl.CamelBridgeImpl]  Creating Vert.x message consumer for direct:RegisterAccountConsumer receiving messages from RegisterAccountConsumer
-[vert.x-eventloop-thread-0] 2019-05-23T00:58:16.815+02:00 INFO [io.swagger.server.api.MainApiVerticle]  CamelBridge : Start failed
-[vert.x-eventloop-thread-0] 2019-05-23T00:58:17.443+02:00 INFO [io.swagger.server.api.MainApiVerticle]  RegisterAccountApiVerticle : Deployed
-[vert.x-eventloop-thread-0] 2019-05-23T00:58:17.443+02:00 INFO [io.swagger.server.api.MainApiVerticle]  CamelBridge : Deployed
-[vert.x-eventloop-thread-2] 2019-05-23T00:58:17.451+02:00 INFO [io.vertx.core.Starter]  Succeeded in deploying verticle

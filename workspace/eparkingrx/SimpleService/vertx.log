@@ -1,0 +1,12 @@
+[vert.x-eventloop-thread-0] 2019-07-14T22:29:47.769+02:00 INFO [pl.eparkingrx.MainVerticle]  eparkingrx start
+[vert.x-eventloop-thread-1] 2019-07-14T22:29:47.812+02:00 INFO [pl.eparkingrx.WebClientVerticle]  starting verticle WebClientVerticle complete
+[vert.x-eventloop-thread-0] 2019-07-14T22:29:47.813+02:00 INFO [pl.eparkingrx.MainVerticle]  eparkingrx start complete
+[vert.x-eventloop-thread-2] 2019-07-14T22:29:47.815+02:00 INFO [pl.eparkingrx.ReceiverVerticle]  starting verticle ReceiverVerticle complete
+[vert.x-eventloop-thread-3] 2019-07-14T22:29:47.821+02:00 INFO [pl.eparkingrx.CallerVerticle]  starting verticle CallerVerticle complete
+[vert.x-eventloop-thread-4] 2019-07-14T22:29:48.497+02:00 INFO [pl.eparkingrx.HttpServerVerticle]  loading swagger from file swagger.json
+[vert.x-eventloop-thread-4] 2019-07-14T22:29:48.786+02:00 INFO [pl.eparkingrx.HttpServerVerticle]  loading swagger eParkingRX API
+[vert.x-eventloop-thread-4] 2019-07-14T22:29:48.807+02:00 INFO [pl.eparkingrx.HttpServerVerticle]  loading swagger complete
+[vert.x-eventloop-thread-4] 2019-07-14T22:29:48.808+02:00 INFO [pl.eparkingrx.HttpServerVerticle]  creating http listener on port 8080
+[vert.x-eventloop-thread-4] 2019-07-14T22:29:48.808+02:00 INFO [pl.eparkingrx.HttpServerVerticle]  starting verticle HttpServerVerticle complete
+[vert.x-eventloop-thread-0] 2019-07-14T22:29:48.808+02:00 INFO [pl.eparkingrx.MainVerticle]  starting verticle MainVerticle complete
+[vert.x-eventloop-thread-4] 2019-07-14T22:29:48.809+02:00 INFO [pl.eparkingrx.HttpServerVerticle]  creating http listener complete

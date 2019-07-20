@@ -2,7 +2,6 @@ package io.swagger.server.api.verticle;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.eventbus.Message;
-import io.vertx.core.eventbus.MessageCodec;
 import io.vertx.core.json.Json;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
@@ -56,15 +55,6 @@ public class RegisterAccountApiVerticle extends AbstractVerticle {
                         manageError(message, cause, "RegisterAccount");
                     }
                 });
-
-                vertx.eventBus().send("RegisterAccountConsumer", registerAccountParam, ar -> {
-                	if (ar.succeeded()) {
-                		LOGGER.info("camel dziala! " + ar.result().body());
-					} else {
-						LOGGER.info("camel NIE dziala! ");
-					}
-                });
-                
             } catch (Exception e) {
                 logUnexpectedError("RegisterAccount", e);
                 message.fail(MainApiException.INTERNAL_SERVER_ERROR.getStatusCode(), MainApiException.INTERNAL_SERVER_ERROR.getStatusMessage());

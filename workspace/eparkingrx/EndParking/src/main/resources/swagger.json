@@ -25,8 +25,8 @@
     "name" : "DisableAccount",
     "description" : "Account deactivation"
   }, {
-    "name" : "UpdateAccount",
-    "description" : "Account update"
+    "name" : "ValidateAccount",
+    "description" : "Account validation"
   }, {
     "name" : "RegisterPayment",
     "description" : "Payment registration"
@@ -141,56 +141,6 @@
         },
         "x-accepts" : "application/json"
       },
-      "put" : {
-        "tags" : [ "UpdateAccount" ],
-        "summary" : "Account update",
-        "operationId" : "UpdateAccount",
-        "consumes" : [ "application/json", "application/xml" ],
-        "produces" : [ "application/json", "application/xml" ],
-        "parameters" : [ {
-          "name" : "AccountId",
-          "in" : "path",
-          "description" : "Account identification",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "UpdateAccount",
-          "description" : "Account update input",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/UpdateAccount"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Account updated",
-            "schema" : {
-              "$ref" : "#/definitions/UpdateAccountResponse"
-            }
-          },
-          "400" : {
-            "description" : "Invalid input",
-            "schema" : {
-              "$ref" : "#/definitions/Fault"
-            }
-          },
-          "500" : {
-            "description" : "Internal system error",
-            "schema" : {
-              "$ref" : "#/definitions/Fault"
-            }
-          },
-          "502" : {
-            "description" : "External system fault",
-            "schema" : {
-              "$ref" : "#/definitions/Fault"
-            }
-          }
-        },
-        "x-contentType" : "application/json",
-        "x-accepts" : "application/json"
-      },
       "delete" : {
         "tags" : [ "DisableAccount" ],
         "summary" : "Account deactivation",
@@ -226,6 +176,52 @@
             }
           }
         },
+        "x-accepts" : "application/json"
+      }
+    },
+    "/accounts/validate" : {
+      "post" : {
+        "tags" : [ "ValidateAccount" ],
+        "summary" : "Account validation",
+        "operationId" : "ValidateAccount",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "ValidateAccount",
+          "description" : "Account validation input",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ValidateAccount"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Account validated",
+            "schema" : {
+              "$ref" : "#/definitions/ValidateAccountResponse"
+            }
+          },
+          "400" : {
+            "description" : "Invalid input",
+            "schema" : {
+              "$ref" : "#/definitions/Fault"
+            }
+          },
+          "500" : {
+            "description" : "Internal system error",
+            "schema" : {
+              "$ref" : "#/definitions/Fault"
+            }
+          },
+          "502" : {
+            "description" : "External system fault",
+            "schema" : {
+              "$ref" : "#/definitions/Fault"
+            }
+          }
+        },
+        "x-contentType" : "application/json",
         "x-accepts" : "application/json"
       }
     },
@@ -539,7 +535,7 @@
       },
       "description" : "information about clients account"
     },
-    "UpdateAccount" : {
+    "ValidateAccount" : {
       "type" : "object",
       "properties" : {
         "Amount" : {
@@ -552,16 +548,16 @@
           "$ref" : "#/definitions/Vehicle"
         }
       },
-      "description" : "information about clients account"
+      "description" : "information required to perform account validation"
     },
-    "UpdateAccountResponse" : {
+    "ValidateAccountResponse" : {
       "type" : "object",
       "properties" : {
-        "Account" : {
-          "$ref" : "#/definitions/Account"
+        "ValidationResult" : {
+          "$ref" : "#/definitions/ValidationResult"
         }
       },
-      "description" : "information about clients account"
+      "description" : "account validation result"
     },
     "RegisterPayment" : {
       "type" : "object",
@@ -841,6 +837,25 @@
       },
       "description" : "information about parking rate per minute"
     },
+    "ValidationResult" : {
+      "type" : "object",
+      "properties" : {
+        "Result" : {
+          "type" : "string",
+          "description" : "validation result",
+          "enum" : [ "VALID", "INVALID" ]
+        },
+        "Messages" : {
+          "type" : "array",
+          "description" : "list of validation messages",
+          "items" : {
+            "type" : "string",
+            "description" : "validation message"
+          }
+        }
+      },
+      "description" : "generic validation result"
+    },
     "Fault" : {
       "type" : "object",
       "properties" : {
@@ -861,7 +876,8 @@
           "type" : "string",
           "description" : "fault details"
         }
-      }
+      },
+      "description" : "generic fault"
     }
   }
 }
