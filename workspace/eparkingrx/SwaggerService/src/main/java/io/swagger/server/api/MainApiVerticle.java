@@ -74,7 +74,7 @@ public class MainApiVerticle extends AbstractVerticle {
         		Swagger swagger = new SwaggerParser().parse(handler.result().toString(Charset.forName("utf-8")));
                 Router swaggerRouter = SwaggerRouter.swaggerRouter(router, swagger, vertx.eventBus(), new OperationIdServiceIdResolver());
                 swaggerRouter.route("/*").handler(requestHandler -> {
-        			requestHandler.response().putHeader("Access-Control-Allow-Origin", "*").putHeader("Access-Control-Allow-Headers", "*").end();
+        			requestHandler.response().putHeader("Access-Control-Allow-Origin", "*").putHeader("Access-Control-Allow-Headers", "*").putHeader("Access-Control-Allow-Methods", "*").end();
         		});
                 vertx.createHttpServer().requestHandler(swaggerRouter).listen(MAIN_SERVICE_PORT, listenHandler -> {
                     if (listenHandler.succeeded()) {
@@ -94,14 +94,14 @@ public class MainApiVerticle extends AbstractVerticle {
     	});
     }
     
-    //helper method to provide json file as http GET for swagger ui
+    //helper method to provide json file as http for swagger ui (check /resources/webroot/index.html)
     public void deploySwaggerJson(Future<Void> deploySwaggerJsonDeployment){
 		FileSystem vertxFileSystem = vertx.fileSystem();
 		vertxFileSystem.readFile("swagger.json", handler -> {
 			if(handler.succeeded()){
 				Router router = Router.router(vertx);
 				router.route("/json").handler(requestHandler -> {
-					requestHandler.response().putHeader("Access-Control-Allow-Origin", "*").end(handler.result().toJsonObject().encodePrettily());
+					requestHandler.response().putHeader("Access-Control-Allow-Origin", "*").putHeader("Access-Control-Allow-Methods", "*").end(handler.result().toJsonObject().encodePrettily());
 				});
 				vertx.createHttpServer().requestHandler(router).listen(JSON_SERVICE_PORT, listenHandler -> {
 					if(listenHandler.succeeded()){
@@ -125,7 +125,7 @@ public class MainApiVerticle extends AbstractVerticle {
     public void deploySwaggerUi(Future<Void> deploySwaggerUiDeployment){
 		Router router = Router.router(vertx);
 		router.route("/ui/*").handler(StaticHandler.create().setCachingEnabled(false)).handler(requestHandler -> {
-			requestHandler.response().putHeader("Access-Control-Allow-Origin", "*").end();
+			requestHandler.response().putHeader("Access-Control-Allow-Origin", "*").putHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS").end();
 		});
 		vertx.createHttpServer().requestHandler(router).listen(UI_SERVICE_PORT, listenHandler -> {
 			if(listenHandler.succeeded()){

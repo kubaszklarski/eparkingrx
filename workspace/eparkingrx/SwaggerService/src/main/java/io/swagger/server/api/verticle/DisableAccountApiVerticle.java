@@ -1,6 +1,7 @@
 package io.swagger.server.api.verticle;
 
 import io.vertx.core.AbstractVerticle;
+import io.vertx.core.eventbus.DeliveryOptions;
 import io.vertx.core.eventbus.Message;
 import io.vertx.core.json.Json;
 import io.vertx.core.json.JsonArray;
@@ -46,9 +47,14 @@ public class DisableAccountApiVerticle extends AbstractVerticle {
                 }
                 String accountId = accountIdParam;
                 service.disableAccount(accountId, result -> {
-                    if (result.succeeded())
-                        message.reply(null);
-                    else {
+                    if (result.succeeded()) {
+                    	DeliveryOptions options = new DeliveryOptions();
+                    	options.addHeader("Access-Control-Allow-Origin", "*");
+                    	options.addHeader("Access-Control-Allow-Methods", "*");
+                    	options.addHeader("Content-Type", "application/json");
+                    	options.addHeader("CUSTOM_STATUS_CODE", "204");
+                        message.reply(null, options);
+                    }else {
                         Throwable cause = result.cause();
                         manageError(message, cause, "DisableAccount");
                     }

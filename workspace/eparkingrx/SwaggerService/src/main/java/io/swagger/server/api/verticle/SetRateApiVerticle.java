@@ -1,6 +1,7 @@
 package io.swagger.server.api.verticle;
 
 import io.vertx.core.AbstractVerticle;
+import io.vertx.core.eventbus.DeliveryOptions;
 import io.vertx.core.eventbus.Message;
 import io.vertx.core.json.Json;
 import io.vertx.core.json.JsonArray;
@@ -48,9 +49,13 @@ public class SetRateApiVerticle extends AbstractVerticle {
                 }
                 SetRate setRate = Json.mapper.readValue(setRateParam.encode(), SetRate.class);
                 service.setRate(setRate, result -> {
-                    if (result.succeeded())
-                        message.reply(new JsonObject(Json.encode(result.result())).encodePrettily());
-                    else {
+                    if (result.succeeded()) {
+                    	DeliveryOptions options = new DeliveryOptions();
+                    	options.addHeader("Access-Control-Allow-Origin", "*");
+                    	options.addHeader("Content-Type", "application/json");
+                    	options.addHeader("CUSTOM_STATUS_CODE", "200");
+                    	message.reply(new JsonObject(Json.encode(result.result())).encodePrettily(), options);
+                    }else {
                         Throwable cause = result.cause();
                         manageError(message, cause, "SetRate");
                     }

@@ -145,7 +145,6 @@
         "tags" : [ "DisableAccount" ],
         "summary" : "Account deactivation",
         "operationId" : "DisableAccount",
-        "produces" : [ "application/json", "application/xml" ],
         "parameters" : [ {
           "name" : "AccountId",
           "in" : "path",
@@ -154,7 +153,7 @@
           "type" : "string"
         } ],
         "responses" : {
-          "200" : {
+          "204" : {
             "description" : "OK"
           },
           "400" : {

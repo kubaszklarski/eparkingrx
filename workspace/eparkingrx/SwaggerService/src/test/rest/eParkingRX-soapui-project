@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="1125deff-b8c3-461a-9898-e3516fe167e4" activeEnvironment="Default" name="eParkingRX" resourceRoot="" soapui-version="5.5.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="e3babcdb-e51b-41db-9566-2063471e5f70" wadlVersion="http://wadl.dev.java.net/2009/02" name="eParkingRX API" type="rest" basePath="/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:description>This is API definition for eParkingRX application</con:description><con:settings/><con:definitionCache type="TEXT" rootPart="file:/C:/work/okno/MGR/repositories/eparkingrx/workspace/eparkingrx/SwaggerService/src/test/rest/eParkingRX%20API_1.wadl"><con:part><con:url>file:/C:/work/okno/MGR/repositories/eparkingrx/workspace/eparkingrx/SwaggerService/src/test/rest/eParkingRX%20API_1.wadl</con:url><con:content><![CDATA[<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="eParkingRX API">This is API definition for eParkingRX application</doc>
+  <resources base="http://localhost:8080/v1">
+    <resource path="accounts" id="/accounts">
+      <doc xml:lang="en" title="/accounts"/>
+      <method name="POST" id="RegisterAccount">
+        <doc xml:lang="en" title="RegisterAccount">Account registration</doc>
+        <request>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="502">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="accounts/validate" id="/accounts/validate">
+      <doc xml:lang="en" title="/accounts/validate"/>
+      <method name="POST" id="ValidateAccount">
+        <doc xml:lang="en" title="ValidateAccount">Account validation</doc>
+        <request>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="502">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="accounts/{AccountId}" id="/accounts/{AccountId}">
+      <doc xml:lang="en" title="/accounts/{AccountId}"/>
+      <method name="GET" id="RetrieveAccount">
+        <doc xml:lang="en" title="RetrieveAccount">Account retrieval</doc>
+        <request>
+          <param name="AccountId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="AccountId Parameter">Account identification</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="502">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <method name="DELETE" id="DisableAccount">
+        <doc xml:lang="en" title="DisableAccount">Account deactivation</doc>
+        <request>
+          <param name="AccountId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="AccountId Parameter">Account identification</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="502">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="fees" id="/fees">
+      <doc xml:lang="en" title="/fees"/>
+      <method name="POST" id="ChargeFee">
+        <doc xml:lang="en" title="ChargeFee">Parking fee charge</doc>
+        <request>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="502">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="parking" id="/parking">
+      <doc xml:lang="en" title="/parking"/>
+      <method name="POST" id="StartParking">
+        <doc xml:lang="en" title="StartParking">Parking start</doc>
+        <request>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="502">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="parking/{ParkingId}" id="/parking/{ParkingId}">
+      <doc xml:lang="en" title="/parking/{ParkingId}"/>
+      <method name="DELETE" id="EndParking">
+        <doc xml:lang="en" title="EndParking">Parking end</doc>
+        <request>
+          <param name="ParkingId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="ParkingId Parameter">End parking input</doc>
+          </param>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="502">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="payments" id="/payments">
+      <doc xml:lang="en" title="/payments"/>
+      <method name="POST" id="RegisterPayment">
+        <doc xml:lang="en" title="RegisterPayment">Payment registration</doc>
+        <request>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="502">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="payments/{AccountId}" id="/payments/{AccountId}">
+      <doc xml:lang="en" title="/payments/{AccountId}"/>
+      <method name="GET" id="CheckBalance">
+        <doc xml:lang="en" title="CheckBalance">Payment balance check</doc>
+        <request>
+          <param name="AccountId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="AccountId Parameter">Account identification</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="502">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="rates" id="/rates">
+      <doc xml:lang="en" title="/rates"/>
+      <method name="PUT" id="SetRate">
+        <doc xml:lang="en" title="SetRate">Update parking rates</doc>
+        <request>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="502">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>]]></con:content><con:type>http://wadl.dev.java.net/2009/02</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080</con:endpoint></con:endpoints><con:resource name="/accounts" path="/accounts" id="1a7c44c9-477d-477c-9b47-989a85801003"><con:settings/><con:parameters/><con:method name="RegisterAccount" id="80ef8dd2-dba7-4d7e-bde2-66e297d1f44d" method="POST"><con:description>
+Account registration</con:description><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>201</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>201</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>502</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>502</con:status><con:params/></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/></con:representation><con:request name="Request 1" id="03ff695a-076a-4ce6-b272-00b5806014b9" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "Amount": "10.00",
+  "Client": {
+    "FirstName": "Jan",
+    "LastName": "Kowalski",
+    "Pesel": "80112200777"
+  },
+  "Vehicle": {
+    "RegistrationNumber": "WW12345",
+    "VinNumber": "JTDZN3EU5FJ016414",
+    "Brand": "Opel",
+    "Model": "Corsa",
+    "ProductionDate": "2018-03-15"
+  }
+}</con:request><con:originalUri>http://localhost/v1/accounts</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="/accounts/validate" path="/accounts/validate" id="9ea11165-1c71-4340-81c6-76bf3fb95694"><con:settings/><con:parameters/><con:method name="ValidateAccount" id="a5e24252-58d8-4c80-8b61-91f7ff58c2c9" method="POST"><con:description>
+Account validation</con:description><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>502</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>502</con:status><con:params/></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/></con:representation><con:request name="Request 1" id="1954f6b8-b06e-4686-8cfc-b09e5d97cba6" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/accounts/{AccountId}" path="/accounts/{AccountId}" id="eb064b02-7c3b-406a-abb8-766edcffe7e6"><con:settings/><con:parameters/><con:method name="RetrieveAccount" id="9e26ce5d-28b6-4595-8d28-345adceec9da" method="GET"><con:description>
+Account retrieval</con:description><con:settings/><con:parameters><con:parameter required="true"><con:name>AccountId</con:name><con:style>TEMPLATE</con:style><con:description>Account identification</con:description></con:parameter></con:parameters><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>404</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>404</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>502</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>502</con:status><con:params/></con:representation><con:request name="Request 1" id="6f27125a-49c7-4b64-bb12-7813d14863a9" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:parameters/></con:request></con:method><con:method name="DisableAccount" id="fc3d1f12-d2a1-4909-97e1-cea9d9035554" method="DELETE"><con:description>
+Account deactivation</con:description><con:settings/><con:parameters><con:parameter required="true"><con:name>AccountId</con:name><con:style>TEMPLATE</con:style><con:description>Account identification</con:description></con:parameter></con:parameters><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>502</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>502</con:status><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" id="8d67685b-3dd0-46d3-947b-a8925be8f22f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "Amount": "10.00",
+  "Client": {
+    "FirstName": "Jan",
+    "LastName": "Kowalski",
+    "Pesel": "80112200777"
+  },
+  "Vehicle": {
+    "RegistrationNumber": "WW12345",
+    "VinNumber": "JTDZN3EU5FJ016414",
+    "Brand": "Opel",
+    "Model": "Corsa",
+    "ProductionDate": "2018-03-15"
+  }
+}</con:request><con:originalUri>http://localhost/v1/accounts/123</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="AccountId" value="123" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request></con:method></con:resource><con:resource name="/fees" path="/fees" id="98c5dff8-bba2-4c34-91b9-6efbb33ed86b"><con:settings/><con:parameters/><con:method name="ChargeFee" id="97e426ea-f4c2-4548-a8b9-8ef809ca6ff8" method="POST"><con:description>
+Parking fee charge</con:description><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>201</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>201</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>502</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>502</con:status><con:params/></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/></con:representation><con:request name="Request 1" id="52c01625-b5ac-485c-a9e4-ff40dd79909c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "Parking": {
+    "ParkingId": "string",
+    "AccountId": "string",
+    "ParkingType": "DEADLINE",
+    "ParkingStatus": "ACTIVE",
+    "ParkingStartTime": "2019-02-14T17:00:00",
+    "ParkingEndTime": "2019-02-14T19:00:00",
+    "ParkingPeriod": "600"
+  }
+}</con:request><con:originalUri>http://localhost/v1/fees</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="/parking" path="/parking" id="19d3caa0-e1d0-40fe-8b50-b3cab596262d"><con:settings/><con:parameters/><con:method name="StartParking" id="85d9af5f-96f6-422a-a89c-7157bfccdded" method="POST"><con:description>
+Parking start</con:description><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>201</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>201</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>502</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>502</con:status><con:params/></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/></con:representation><con:request name="Request 1" id="6cc8a75b-4e8a-456f-a726-d6b3a1cb20d4" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/parking/{ParkingId}" path="/parking/{ParkingId}" id="674d3037-631e-47b6-8b75-9830c7ef6900"><con:settings/><con:parameters/><con:method name="EndParking" id="dc78b352-9a4f-4eed-bbae-a3d412847e07" method="DELETE"><con:description>
+Parking end</con:description><con:settings/><con:parameters><con:parameter required="true"><con:name>ParkingId</con:name><con:style>TEMPLATE</con:style><con:description>End parking input</con:description></con:parameter></con:parameters><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>502</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>502</con:status><con:params/></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/></con:representation><con:request name="Request 1" id="f04a0594-0ec8-4fc2-a562-db89caf746d4" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/payments" path="/payments" id="f3fd5028-e5a8-46b8-bf33-dd44429740f1"><con:settings/><con:parameters/><con:method name="RegisterPayment" id="dfed9641-5efd-4d0d-ba77-7621795dba6b" method="POST"><con:description>
+Payment registration</con:description><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>201</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>201</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>502</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>502</con:status><con:params/></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/></con:representation><con:request name="Request 1" id="9e2bfb00-33fd-4dea-8da0-b6fcd3e52b01" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/payments/{AccountId}" path="/payments/{AccountId}" id="7a0f3c9c-1154-48bd-9bd1-689599d4fc80"><con:settings/><con:parameters/><con:method name="CheckBalance" id="1b05d5f3-54e2-4017-b92c-e6237e03034e" method="GET"><con:description>
+Payment balance check</con:description><con:settings/><con:parameters><con:parameter required="true"><con:name>AccountId</con:name><con:style>TEMPLATE</con:style><con:description>Account identification</con:description></con:parameter></con:parameters><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200 201</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>404</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>404</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>502</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>502</con:status><con:params/></con:representation><con:request name="Request 1" id="2a03ad04-8129-4902-b234-5a27f0a67055" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:originalUri>http://localhost/v1/payments/123</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="AccountId" value="123" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request></con:method></con:resource><con:resource name="/rates" path="/rates" id="9533ab9e-c85a-4d9b-9464-3a9ed01f5bb4"><con:settings/><con:parameters/><con:method name="SetRate" id="186845f7-049e-4ecb-a977-9b1a11041381" method="PUT"><con:description>
+Update parking rates</con:description><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>502</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>502</con:status><con:params/></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/></con:representation><con:request name="Request 1" id="79cef1d3-c063-4669-ac67-f82aa0755bf0" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite id="7e2cf75a-1c7b-49f1-ab99-e9682bf8e404" name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="e9dcea77-84b5-48d0-9570-d63e05cb9d48" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="RegisterAccount - Request 1" id="df4e5dc0-cf2f-41ed-a621-7c9682da3dec"><con:settings/><con:config service="eParkingRX API" resourcePath="/v1/accounts" methodName="RegisterAccount" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="RegisterAccount - Request 1" id="03ff695a-076a-4ce6-b272-00b5806014b9" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "Amount": "10.00",
+  "Client": {
+    "FirstName": "Jan",
+    "LastName": "Kowalski",
+    "Pesel": "80112200777"
+  },
+  "Vehicle": {
+    "RegistrationNumber": "WW12345",
+    "VinNumber": "JTDZN3EU5FJ016414",
+    "Brand": "Opel",
+    "Model": "Corsa",
+    "ProductionDate": "2018-03-15"
+  }
+}</con:request><con:originalUri>http://localhost/v1/accounts</con:originalUri><con:assertion type="Schema Compliance" id="dd83e8ce-3f0a-4ea9-9199-317edc0a4c95" name="Schema Compliance"><con:configuration><definition>C:\work\okno\MGR\repositories\eparkingrx\workspace\eparkingrx\SwaggerService\src\test\rest\eParkingRX API_1.wadl</definition></con:configuration></con:assertion><con:assertion type="JsonPath Count" id="0f4a3cac-13ad-4799-863c-f56fa82f7f59" name="JsonPath Count"><con:configuration><path>$.AccountId</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="8d2b6eb3-808b-47d0-9c59-6bf63db8a606" name="Valid HTTP Status Codes"><con:configuration><codes>201</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="ChargeFee - Request 1" id="af973d24-1ac0-4d43-b70f-f4a6e1d2456a"><con:settings/><con:config service="eParkingRX API" resourcePath="/v1/fees" methodName="ChargeFee" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="ChargeFee - Request 1" id="52c01625-b5ac-485c-a9e4-ff40dd79909c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "Parking": {
+    "ParkingId": "string",
+    "AccountId": "string",
+    "ParkingType": "DEADLINE",
+    "ParkingStatus": "ACTIVE",
+    "ParkingStartTime": "2019-02-14T17:00:00",
+    "ParkingEndTime": "2019-02-14T19:00:00",
+    "ParkingPeriod": "600"
+  }
+}</con:request><con:originalUri>http://localhost/v1/fees</con:originalUri><con:assertion type="Schema Compliance" id="4961217e-01f6-49ff-912d-32dd6d37114f" name="Schema Compliance"><con:configuration><definition>C:\work\okno\MGR\repositories\eparkingrx\workspace\eparkingrx\SwaggerService\src\test\rest\eParkingRX API_1.wadl</definition></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="87101038-b845-48d3-8b89-5e85abe957e3" name="Valid HTTP Status Codes"><con:configuration><codes>201</codes></con:configuration></con:assertion><con:assertion type="JsonPath Count" id="18409895-5515-4cc8-a820-366d7d96773e" name="JsonPath Count"><con:configuration><path>$.Amount</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="CheckBalance - Request 1" id="ff25862d-1207-4843-a196-5fbc56ef7aa8"><con:settings/><con:config service="eParkingRX API" resourcePath="/v1/payments/{AccountId}" methodName="CheckBalance" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CheckBalance - Request 1" id="2a03ad04-8129-4902-b234-5a27f0a67055" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:originalUri>http://localhost/v1/payments/123</con:originalUri><con:assertion type="Schema Compliance" id="a0328791-602c-4706-a4e1-4fcaa4838f64" name="Schema Compliance"><con:configuration><definition>C:\work\okno\MGR\repositories\eparkingrx\workspace\eparkingrx\SwaggerService\src\test\rest\eParkingRX API_1.wadl</definition></con:configuration></con:assertion><con:assertion type="JsonPath Count" id="4bb2a173-9007-4a3a-a78a-b51d913420bc" name="JsonPath Count"><con:configuration><path>$.Amount</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="0636a8a7-a2be-458c-a7aa-ec50f8e10b59" name="Valid HTTP Status Codes"><con:configuration><codes>201</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="AccountId" value="123" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="DisableAccount - Request 1" id="9658c7ba-4e9e-4c30-98d7-d9eb117ebd27"><con:settings/><con:config service="eParkingRX API" resourcePath="/v1/accounts/{AccountId}" methodName="DisableAccount" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="DisableAccount - Request 1" id="8d67685b-3dd0-46d3-947b-a8925be8f22f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:originalUri>http://localhost/v1/accounts/123</con:originalUri><con:assertion type="Schema Compliance" id="4b9fd6ee-b194-4420-9506-d4a5466dc5f1" name="Schema Compliance"><con:configuration><definition>C:\work\okno\MGR\repositories\eparkingrx\workspace\eparkingrx\SwaggerService\src\test\rest\eParkingRX API_1.wadl</definition></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="AccountId" value="123" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

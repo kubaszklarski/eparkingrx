@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="eParkingRX API">This is API definition for eParkingRX application</doc>
+  <resources base="http://localhost:8080/v1">
+    <resource path="accounts" id="/accounts">
+      <doc xml:lang="en" title="/accounts"/>
+      <method name="POST" id="RegisterAccount">
+        <doc xml:lang="en" title="RegisterAccount">Account registration</doc>
+        <request>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="502">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="accounts/validate" id="/accounts/validate">
+      <doc xml:lang="en" title="/accounts/validate"/>
+      <method name="POST" id="ValidateAccount">
+        <doc xml:lang="en" title="ValidateAccount">Account validation</doc>
+        <request>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="502">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="accounts/{AccountId}" id="/accounts/{AccountId}">
+      <doc xml:lang="en" title="/accounts/{AccountId}"/>
+      <method name="GET" id="RetrieveAccount">
+        <doc xml:lang="en" title="RetrieveAccount">Account retrieval</doc>
+        <request>
+          <param name="AccountId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="AccountId Parameter">Account identification</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="502">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <method name="DELETE" id="DisableAccount">
+        <doc xml:lang="en" title="DisableAccount">Account deactivation</doc>
+        <request>
+          <param name="AccountId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="AccountId Parameter">Account identification</doc>
+          </param>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="204">
+          <representation mediaType="application/json"/>
+          <representation mediaType=""/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="502">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="fees" id="/fees">
+      <doc xml:lang="en" title="/fees"/>
+      <method name="POST" id="ChargeFee">
+        <doc xml:lang="en" title="ChargeFee">Parking fee charge</doc>
+        <request>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="502">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="parking" id="/parking">
+      <doc xml:lang="en" title="/parking"/>
+      <method name="POST" id="StartParking">
+        <doc xml:lang="en" title="StartParking">Parking start</doc>
+        <request>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="502">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="parking/{ParkingId}" id="/parking/{ParkingId}">
+      <doc xml:lang="en" title="/parking/{ParkingId}"/>
+      <method name="DELETE" id="EndParking">
+        <doc xml:lang="en" title="EndParking">Parking end</doc>
+        <request>
+          <param name="ParkingId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="ParkingId Parameter">End parking input</doc>
+          </param>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="502">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="payments" id="/payments">
+      <doc xml:lang="en" title="/payments"/>
+      <method name="POST" id="RegisterPayment">
+        <doc xml:lang="en" title="RegisterPayment">Payment registration</doc>
+        <request>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="502">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="payments/{AccountId}" id="/payments/{AccountId}">
+      <doc xml:lang="en" title="/payments/{AccountId}"/>
+      <method name="GET" id="CheckBalance">
+        <doc xml:lang="en" title="CheckBalance">Payment balance check</doc>
+        <request>
+          <param name="AccountId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="AccountId Parameter">Account identification</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="502">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="rates" id="/rates">
+      <doc xml:lang="en" title="/rates"/>
+      <method name="PUT" id="SetRate">
+        <doc xml:lang="en" title="SetRate">Update parking rates</doc>
+        <request>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="502">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>

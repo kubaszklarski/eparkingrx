@@ -1,28 +1,15 @@
-[vert.x-eventloop-thread-0] 2019-07-19T01:49:20.471+02:00 INFO [io.swagger.server.api.MainApiVerticle]  Verticles : Deployed
-[vert.x-eventloop-thread-0] 2019-07-19T01:49:20.514+02:00 INFO [io.swagger.server.api.MainApiVerticle]  ChargeFeeApiVerticle : Deployed
-[vert.x-eventloop-thread-0] 2019-07-19T01:49:20.515+02:00 INFO [io.swagger.server.api.MainApiVerticle]  DisableAccountApiVerticle : Deployed
-[vert.x-eventloop-thread-0] 2019-07-19T01:49:20.515+02:00 INFO [io.swagger.server.api.MainApiVerticle]  CheckBalanceApiVerticle : Deployed
-[vert.x-eventloop-thread-0] 2019-07-19T01:49:20.515+02:00 INFO [io.swagger.server.api.MainApiVerticle]  EndParkingApiVerticle : Deployed
-[vert.x-eventloop-thread-0] 2019-07-19T01:49:20.515+02:00 INFO [io.swagger.server.api.MainApiVerticle]  RegisterAccountApiVerticle : Deployed
-[vert.x-eventloop-thread-0] 2019-07-19T01:49:20.515+02:00 INFO [io.swagger.server.api.MainApiVerticle]  RegisterPaymentApiVerticle : Deployed
-[vert.x-eventloop-thread-0] 2019-07-19T01:49:20.516+02:00 INFO [io.swagger.server.api.MainApiVerticle]  RetrieveAccountApiVerticle : Deployed
-[vert.x-eventloop-thread-0] 2019-07-19T01:49:20.516+02:00 INFO [io.swagger.server.api.MainApiVerticle]  SetRateApiVerticle : Deployed
-[vert.x-eventloop-thread-0] 2019-07-19T01:49:20.516+02:00 INFO [io.swagger.server.api.MainApiVerticle]  StartParkingApiVerticle : Deployed
-[vert.x-eventloop-thread-0] 2019-07-19T01:49:20.516+02:00 INFO [io.swagger.server.api.MainApiVerticle]  ValidateAccountApiVerticle : Deployed
-[vert.x-eventloop-thread-0] 2019-07-19T01:49:21.134+02:00 INFO [io.swagger.server.api.MainApiVerticle]  SwaggerJson : Deployed
-[vert.x-eventloop-thread-0] 2019-07-19T01:49:21.15+02:00 INFO [io.swagger.server.api.MainApiVerticle]  SwaggerUi : Deployed
-[vert.x-eventloop-thread-0] 2019-07-19T01:49:21.436+02:00 SEVERE [io.vertx.core.impl.ContextImpl]  Unhandled exception
-java.lang.NullPointerException
-	at com.github.phiz71.vertx.swagger.router.SwaggerRouter.getBasePath(SwaggerRouter.java:129)
-	at com.github.phiz71.vertx.swagger.router.SwaggerRouter.swaggerRouter(SwaggerRouter.java:75)
-	at com.github.phiz71.vertx.swagger.router.SwaggerRouter.swaggerRouter(SwaggerRouter.java:70)
-	at io.swagger.server.api.MainApiVerticle.lambda$4(MainApiVerticle.java:75)
-	at io.vertx.core.impl.ContextImpl.lambda$null$0(ContextImpl.java:284)
-	at io.vertx.core.impl.ContextImpl.executeTask(ContextImpl.java:320)
-	at io.vertx.core.impl.EventLoopContext.lambda$executeAsync$0(EventLoopContext.java:38)
-	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)
-	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:404)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:495)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:905)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.lang.Thread.run(Thread.java:748)
+[vert.x-eventloop-thread-0] 2019-07-21T01:58:46.795+02:00 INFO [io.swagger.server.api.MainApiVerticle]  Verticles : Deployed
+[vert.x-eventloop-thread-0] 2019-07-21T01:58:46.851+02:00 INFO [io.swagger.server.api.MainApiVerticle]  ChargeFeeApiVerticle : Deployed
+[vert.x-eventloop-thread-0] 2019-07-21T01:58:46.851+02:00 INFO [io.swagger.server.api.MainApiVerticle]  DisableAccountApiVerticle : Deployed
+[vert.x-eventloop-thread-0] 2019-07-21T01:58:46.851+02:00 INFO [io.swagger.server.api.MainApiVerticle]  CheckBalanceApiVerticle : Deployed
+[vert.x-eventloop-thread-0] 2019-07-21T01:58:46.852+02:00 INFO [io.swagger.server.api.MainApiVerticle]  EndParkingApiVerticle : Deployed
+[vert.x-eventloop-thread-0] 2019-07-21T01:58:46.852+02:00 INFO [io.swagger.server.api.MainApiVerticle]  RegisterAccountApiVerticle : Deployed
+[vert.x-eventloop-thread-0] 2019-07-21T01:58:46.852+02:00 INFO [io.swagger.server.api.MainApiVerticle]  RegisterPaymentApiVerticle : Deployed
+[vert.x-eventloop-thread-0] 2019-07-21T01:58:46.852+02:00 INFO [io.swagger.server.api.MainApiVerticle]  RetrieveAccountApiVerticle : Deployed
+[vert.x-eventloop-thread-0] 2019-07-21T01:58:46.853+02:00 INFO [io.swagger.server.api.MainApiVerticle]  SetRateApiVerticle : Deployed
+[vert.x-eventloop-thread-0] 2019-07-21T01:58:46.853+02:00 INFO [io.swagger.server.api.MainApiVerticle]  StartParkingApiVerticle : Deployed
+[vert.x-eventloop-thread-0] 2019-07-21T01:58:46.853+02:00 INFO [io.swagger.server.api.MainApiVerticle]  ValidateAccountApiVerticle : Deployed
+[vert.x-eventloop-thread-0] 2019-07-21T01:58:47.663+02:00 INFO [io.swagger.server.api.MainApiVerticle]  SwaggerJson : Deployed
+[vert.x-eventloop-thread-0] 2019-07-21T01:58:47.681+02:00 INFO [io.swagger.server.api.MainApiVerticle]  SwaggerUi : Deployed
+[vert.x-eventloop-thread-0] 2019-07-21T01:58:48.066+02:00 INFO [io.swagger.server.api.MainApiVerticle]  SwaggerRouter : Deployed
+[vert.x-eventloop-thread-0] 2019-07-21T01:58:48.066+02:00 INFO [io.swagger.server.api.MainApiVerticle]  MainApiVerticle : Deployed
