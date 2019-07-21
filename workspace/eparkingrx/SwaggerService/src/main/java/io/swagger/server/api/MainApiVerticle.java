@@ -101,7 +101,7 @@ public class MainApiVerticle extends AbstractVerticle {
 			if(handler.succeeded()){
 				Router router = Router.router(vertx);
 				router.route("/json").handler(requestHandler -> {
-					requestHandler.response().putHeader("Access-Control-Allow-Origin", "*").putHeader("Access-Control-Allow-Methods", "*").end(handler.result().toJsonObject().encodePrettily());
+					requestHandler.response().putHeader("Access-Control-Allow-Origin", "*").putHeader("Access-Control-Allow-Headers", "*").putHeader("Access-Control-Allow-Methods", "*").end(handler.result().toJsonObject().encodePrettily());
 				});
 				vertx.createHttpServer().requestHandler(router).listen(JSON_SERVICE_PORT, listenHandler -> {
 					if(listenHandler.succeeded()){
@@ -125,7 +125,7 @@ public class MainApiVerticle extends AbstractVerticle {
     public void deploySwaggerUi(Future<Void> deploySwaggerUiDeployment){
 		Router router = Router.router(vertx);
 		router.route("/ui/*").handler(StaticHandler.create().setCachingEnabled(false)).handler(requestHandler -> {
-			requestHandler.response().putHeader("Access-Control-Allow-Origin", "*").putHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS").end();
+			requestHandler.response().putHeader("Access-Control-Allow-Origin", "*").putHeader("Access-Control-Allow-Headers", "*").putHeader("Access-Control-Allow-Methods", "*").end();
 		});
 		vertx.createHttpServer().requestHandler(router).listen(UI_SERVICE_PORT, listenHandler -> {
 			if(listenHandler.succeeded()){

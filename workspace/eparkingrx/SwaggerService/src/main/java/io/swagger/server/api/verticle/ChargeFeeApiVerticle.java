@@ -52,6 +52,7 @@ public class ChargeFeeApiVerticle extends AbstractVerticle {
                     if (result.succeeded()) {
                     	DeliveryOptions options = new DeliveryOptions();
                     	options.addHeader("Access-Control-Allow-Origin", "*");
+                    	options.addHeader("Access-Control-Allow-Methods", "*");
                     	options.addHeader("Content-Type", "application/json");
                     	options.addHeader("CUSTOM_STATUS_CODE", "201");
                         message.reply(new JsonObject(Json.encode(result.result())).encodePrettily(), options);

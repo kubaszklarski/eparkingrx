@@ -51,7 +51,6 @@ public class DisableAccountApiVerticle extends AbstractVerticle {
                     	DeliveryOptions options = new DeliveryOptions();
                     	options.addHeader("Access-Control-Allow-Origin", "*");
                     	options.addHeader("Access-Control-Allow-Methods", "*");
-                    	options.addHeader("Content-Type", "application/json");
                     	options.addHeader("CUSTOM_STATUS_CODE", "204");
                         message.reply(null, options);
                     }else {

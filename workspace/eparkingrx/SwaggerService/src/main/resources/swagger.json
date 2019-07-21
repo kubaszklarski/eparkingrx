@@ -145,6 +145,7 @@
         "tags" : [ "DisableAccount" ],
         "summary" : "Account deactivation",
         "operationId" : "DisableAccount",
+        "produces" : [ "application/json", "application/xml" ],
         "parameters" : [ {
           "name" : "AccountId",
           "in" : "path",
@@ -461,7 +462,6 @@
         "tags" : [ "EndParking" ],
         "summary" : "Parking end",
         "operationId" : "EndParking",
-        "consumes" : [ "application/json", "application/xml" ],
         "produces" : [ "application/json", "application/xml" ],
         "parameters" : [ {
           "name" : "ParkingId",
@@ -655,7 +655,7 @@
           "$ref" : "#/definitions/ParkingId"
         }
       },
-      "description" : "information about amount charged for parking"
+      "description" : "information about newly created parking identification"
     },
     "EndParkingResponse" : {
       "type" : "object",
