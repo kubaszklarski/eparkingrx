@@ -1,0 +1,14 @@
+FROM openjdk:8-jre-alpine
+
+ENV VERTICLE_FILE ClientVerticle-1.0.0-fat.jar
+
+# Set the location of the verticles
+ENV VERTICLE_HOME /usr/verticles
+
+COPY target/$VERTICLE_FILE $VERTICLE_HOME/
+
+WORKDIR $VERTICLE_HOME
+
+ENTRYPOINT ["sh", "-c"]
+
+CMD ["exec java -jar $VERTICLE_FILE"]
